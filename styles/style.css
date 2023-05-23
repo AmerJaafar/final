@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+    list-style: none;
+}
+/****************************************************************************************************************/
+/****************************************************************************************************************/
+/***************************************home page styles*********************************************************/
+/****************************************************************************************************************/
+/****************************************************************************************************************/
+.full {
+    width: 100%;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.web-container {
+    background: #C3C3C3;
+    height: calc(100vh - 75px);
+}
+
+.header {
+    background: #DCDCDC;
+    height: 75px;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.nav-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    color: #797979;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.web-container .popup-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 75%;
+    height: 500px;
+    /* display: none; */
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+.open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #797979;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.popup-container .popup-header {
+    margin: 25px auto;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+} 
+.popup-container .text {
+    margin: 25px auto;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.popup-container .text span{
+    font-size: 35px;
+    font-weight: 100;
+    display: block;
+    margin-bottom: 25px;
+}
+.text .img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 5px solid #83A4D4;
+}
+
+/****************************************************************************************************************/
+/****************************************************************************************************************/
+/**************************************admin page styles*********************************************************/
+/****************************************************************************************************************/
+/****************************************************************************************************************/
+.adminControl h3{
+    color: #484848;
+    font-weight: 300;
+}
+.adminControl .adminAcses {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(75px, 1fr));
+    justify-items: center;
+}
+.adminControl .adminAcses div {
+    background: #EAEAEa ;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.adminControl .adminAcses div a {
+    color: #000;
+    text-decoration: none;
+    font-size: 2rem;
+}
+.excellentStudets table {
+    border: 1px solid black;
+    width: 35%;
+    margin: 0 50px;
+    text-align: center;
+}
+.excellentStudets table td {
+    border: 1px solid black;
+    padding: 5px;
+}
+.excellentStudets table thead {
+    background: #EAEAEA;
+    padding: 10px;
+}
