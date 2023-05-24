@@ -1,52 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                <!-- main css fille -->
+    <!-- main css fille -->
     <link rel="stylesheet" href="./styles/style.css">
-                <!-- google font -->
+    <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-                <!-- font awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- font awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Login</title>
 </head>
+
 <body>
     <header class="header full">
-            <!-- As a heading -->
+        <!-- As a heading -->
         <nav class="navbar container">
             <div class="nav-content">
-            <span class="logo">LOGO</span>
+                <span class="logo">LOGO</span>
             </div>
         </nav>
     </header>
 
     <div class=" web-container">
-          <div class="conatiner-permission">
+        <div class="conatiner-permission">
             <label for="isAdmin">Are you?</label>
             <div class="select-permission center">
-              <div id="admin" onclick="getLoginPopup()">admin</div>
-              <div id="teacher" onclick="getLoginPopup()">teacher</div>
-              <div id="student" onclick="getLoginPopup()">student</div>
+                <div id="admin" onclick="getLoginPopup('admin')">admin</div>
+                <div id="teacher" onclick="getLoginPopup('teacher')">teacher</div>
+                <div id="student" onclick="getLoginPopup('student')">student</div>
             </div>
-          </div>
-            <!-- <div class="popup-container">
-                <div class="popup-header">
+        </div>
+        <div class="popup-container">
+            <div class="popup-header">
+                <div class="btn btn-menu hover rotate-90 radius-25">
                     <i class="fa-solid fa-bars"></i>
-                    <button class="clous" id="clous" type="submit"><i class="fa-solid fa-xmark"></i></button>
                 </div>
-                <div class="text">
-                    <span>WELCOM ADMIN </span>
-                    <img src="./assest/images/img.jpeg" alt="" class="img">
+                <div class="btn btn-close hover rotate-45 radius-25" type="submit" onclick="popupClose()">
+                    <i class="fa-solid fa-xmark"></i>
                 </div>
-            </div> -->
+            </div>
+            <div class="text">
+                <span id="welcome-msg"></span>
+                <img src="./assest/images/img.jpeg" alt="" class="img">
+                <form action="#" method="get">
+                    <div class="input-field">
+                        <div class="label">
+                            <i class="fa-solid fa-envelope icon"></i>
+                            <input type="email" name="email" id="email">
+                            <i class=""></i>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <div class="label label-pass">
+                            <i class="fa-solid fa-lock icon"></i>
+                            <input type="password" name="pass" id="pass">
+                            <i class="fa-solid fa-eye action-icon show-pass" onclick="togglePassword()"></i>
+                            <i class="fa-solid fa-eye-slash action-icon show-pass" onclick="togglePassword()"></i>
+                        </div>
+
+                        <small class="forget-pass">
+                            <a>Forget Password?</a>
+                        </small>
+                    </div>
+
+                    <div class="btn-container">
+                        <div class="btn btn-submit">
+                            <input type="submit" value="Login">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
 
     </div>
     <script src="./script/main.js"></script>
 </body>
+
 </html>
