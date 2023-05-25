@@ -313,4 +313,5 @@ input[type="submit"] {
     color: #fff;
     font-size: 16px;
     font-weight: 300;
+    cursor: pointer;
 }

@@ -37,15 +37,13 @@ function togglePassword() {
 
   if (passType.type == "password") {
     passType.type = "text";
-    showPass.style.display = "inline-block";
-    hidePass.style.display = "none";
+    showPass.style.display != showPass.style.display;
+    hidePass.style.display != hidePass.style.display;
 
     labelPass.background = "transparent"
     inputPass.background = "transparent"
   } else {
     passType.type = "password";
-    showPass.style.display = "none";
-    hidePass.style.display = "inline-block";
 
     labelPass.background = "#dddddd"
     inputPass.background = "#dddddd"
