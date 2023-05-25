@@ -98,12 +98,24 @@
     height: 500px;
     display: none;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+}
+
+.open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #797979;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .popup-container .popup-header {
-    margin: 15px auto;
-    width: 90%;
+    margin: 25px auto;
+    width: 75%;
     display: flex;
     justify-content: space-between;
 }
@@ -135,15 +147,56 @@
 /**************************************admin page styles*********************************************************/
 /****************************************************************************************************************/
 /****************************************************************************************************************/
+.logout {
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: none;
+    background: #797979;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgb(51 51 51 / 50%);
+    transition: all .3s ease-in-out;
+}
+
+.logout:hover,
+.add:hover {
+    transform: scale(1.1);
+}
+
+.adminControl {
+    margin-top: 25px;
+}
+
+.adminControl .links {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add {
+    padding: 7px 15px;
+    border: none;
+    background: #797979;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgb(51 51 51 / 50%);
+    transition: all .3s ease-in-out;
+    display: block;
+}
+
 .adminControl h3 {
     color: #484848;
     font-weight: 300;
+    font-size: 25px;
 }
 
 .adminControl .adminAcses {
     display: grid;
     grid-template-columns: repeat(3, minmax(75px, 1fr));
     justify-items: center;
+    margin: 50px 0;
 }
 
 .adminControl .adminAcses div {
@@ -166,6 +219,7 @@
     width: 35%;
     margin: 0 50px;
     text-align: center;
+    margin-top: 50px;
 }
 
 .excellentStudets table td {
@@ -173,9 +227,77 @@
     padding: 5px;
 }
 
-.excellentStudets table thead {
+.excellentStudets table thead td {
     background: #EAEAEA;
     padding: 10px;
+}
+
+.table-container {
+    margin: 50px auto;
+    width: 50%;
+
+}
+
+.table-container table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.table-container table thead {
+    background: #C3C3C3;
+}
+
+.table-container table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 85%; */
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.input-container input {
+    width: 90%;
+    padding: 10px;
+    margin-left: 25px;
+}
+
+.form-container {
+    width: 35%;
+    position: relative;
+    margin: 50px 100px;
+}
+
+.form-container .add {
+    position: absolute;
+    right: 0;
+}
+
+.profile-container {
+    margin: 0 100px;
+    display: flex;
+}
+
+.profile-container .img-box img {
+    width: 250px;
+    height: 400px;
+}
+
+.profile-container .profile-content {
+    margin-top: 100px;
+}
+
+.profile-content p {
+    margin-bottom: 20px;
+    font-size: 25px;
+    margin-left: 20px;
 }
 
 /* Hekmat Style */
