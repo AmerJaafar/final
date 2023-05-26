@@ -1,36 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-                    <!-- main css fille -->
-        <link rel="stylesheet" href="../../styles/style.css">
-                    <!-- google font -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-                    <!-- font awsome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>admin-student-add</title>
-</head>
-<body>
-    <header class="header">
-        <!-- As a heading -->
-        <nav class="navbar container">
-            <div class="nav-content">
-            <span class="logo">LOGO</span>
-            <button class="logout" id="logout">Logout</button>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-       
+<?php include_once '../partials/header.php' ?>
+
         <div class="adminControl adminTeacherControl">
             <div class="links">
-                <h3>Admin - <a href="../index.html">Home</a> - Add Student</h3>
+                <h3>Admin - Home - Edite Student</h3>
             </div>
+            <?php include_once '../partials/blocks.php' ?>
+
             <div class="form-container">
                 <form action="#">
                     <div class="input-container">
@@ -53,7 +28,7 @@
                         <label for="image">image:</label>
                         <input type="file" name="image" id="studentImage">
                     </div>
-                    <button type="submit" class="add" >Save</button>
+                    <button type="submit" class="add" >Edite</button>
                 </form>
             </div>
            
