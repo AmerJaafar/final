@@ -1,3 +1,7 @@
+<?php 
+$connection = mysqli_connect("localhost","root","","db.courses");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,18 +54,28 @@
                         <td> student name </td>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>muhammed ali</td>
-                        </tr>
-                        <tr>
-                            <td>muhammed ali</td>
-                        </tr>
-                        <tr>
-                            <td>muhammed ali</td>
-                        </tr>
-                        <tr>
-                            <td>muhammed ali</td>
-                        </tr>
+
+                    <?php
+                        $student_query = "SELECT `_id`, `name`, `degree` FROM `tbl_student`";
+                        $student_result = mysqli_query($connection, $student_query);
+
+                        if (mysqli_num_rows($student_result) > 0) {
+    
+                            while ($student = mysqli_fetch_array($student_result)) { 
+                                if ($student['degree'] <= 3) {
+                                ?>
+                                        <tr>
+                                            <td><?php echo $student['name']; ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    else { ?>
+                                        <div>No Data</div>
+                                    <?php }
+                                }
+
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

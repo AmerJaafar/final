@@ -1,4 +1,19 @@
-<?php include_once '../partials/header.php' ?>
+<?php include_once '../partials/header.php';
+
+if (isset($_POST['add'])) {
+    $sName = $_POST['name'];
+    $sNumber = $_POST['coursenr'];
+    $sCountTeacher = $_POST['countTeach'];
+
+    $query = "INSERT INTO `tbl_course`(`name`, `coursenr`, `countTeach`) VALUES ('$sName','$sNumber','$sCountTeacher')";
+
+    if (mysqli_query($connection, $query)) {
+        header('Location: adminCourses.php');
+    } else {
+        echo "Error updating record: " . mysqli_error($connection);
+    }
+}
+?>
 
        
         <div class="adminControl adminTeacherControl">
@@ -8,27 +23,26 @@
             <?php include_once '../partials/blocks.php' ?>
 
             <div class="form-container">
-                <form action="#">
+                <form action="#" method="post">
                     <div class="input-container">
                         <label for="number">number:</label>
-                        <input type="number" name="number" id="courseNumber" placeholder="Enter Course Number.." required>
+                        <input type="text" name="coursenr" id="courseNumber" placeholder="Enter Course Number.." required>
                     </div>
                     <div class="input-container">
                         <label for="Name">Name:</label>
-                        <input type="text" name="Name" id="courseName" placeholder="Enter course Name.." required>
+                        <input type="text" name="name" id="courseName" placeholder="Enter course Name.." required>
                     </div>
                     <div class="input-container">
                         <label for="teacher">Teacher:</label>
-                        <select name="" id="">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
+                        <select name="countTeach" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                         </select>
                     </div>
                     
-                    
-                    <button type="submit" class="add" >Save</button>
+                    <input type="submit" value="Save" name="add" class="add">
                 </form>
             </div>
            

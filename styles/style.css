@@ -177,7 +177,7 @@
 .add {
     padding: 7px 15px;
     border: none;
-    background: #797979;
+    background: #797979 !important;
     border-radius: 5px;
     color: white;
     cursor: pointer;

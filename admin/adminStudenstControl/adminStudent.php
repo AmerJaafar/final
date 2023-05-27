@@ -5,7 +5,7 @@
         <h3>Admin - Home - Student</h3>
         <a href="./adminstudentAdd.php" class="add">add</a>
     </div>
-            <?php include_once '../partials/blocks.php' ?>
+    <?php include_once '../partials/blocks.php' ?>
 
     <div class="table-container">
         <table class="teble" id="a-studentTable">
@@ -18,30 +18,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr id="studentRow">
-                    <td>ahmed ali</td>
-                    <td>059123456</td>
-                    <td><a href="./adminStudentEdite.html" class="add">edit</a></td>
-                    <td><a href="./adminStudentProfile.html" class="add">profile</a></td>
-                </tr>
-                <tr id="studentRow">
-                    <td>ahmed ali</td>
-                    <td>059123456</td>
-                    <td><a href="./adminStudentEdite.html" class="add">edit</a></td>
-                    <td><a href="./adminStudentProfile.html" class="add">profile</a></td>
-                </tr>
-                <tr id="studentRow">
-                    <td>ahmed ali</td>
-                    <td>059123456</td>
-                    <td><a href="./adminStudentEdite.html" class="add">edit</a></td>
-                    <td><a href="./adminStudentProfile.html" class="add">profile</a></td>
-                </tr>
-                <tr id="studentRow">
-                    <td>ahmed ali</td>
-                    <td>059123456</td>
-                    <td><a href="./adminStudentEdite.html" class="add">edit</a></td>
-                    <td><a href="./adminStudentProfile.html" class="add">profile</a></td>
-                </tr>
+                <?php
+                $student_query = "SELECT `_id`, `name`, `phone` FROM `tbl_student`";
+                $student_result = mysqli_query($connection, $student_query);
+
+                if (mysqli_num_rows($student_result) > 0) {
+
+                    while ($student = mysqli_fetch_array($student_result)) {
+                ?>
+                        <tr id="studentRow">
+                            <td><?php echo $student['name']; ?></td>
+                            <td><?php echo $student['phone']; ?></td>
+                            <td><a href='./adminStudentEdite.php?_id=<?php echo $student['_id']; ?>' class="add">edit</a></td>
+                            <td><a href='./adminStudentProfile.php?_id=<?php echo $student['_id']; ?>' class="add">profile</a></td>
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
             </tbody>
         </table>
     </div>

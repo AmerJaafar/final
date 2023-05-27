@@ -6,14 +6,23 @@ function getLoginPopup(item) {
     case 'admin':
       popupDisplay.style.display = "block";
       welcomeMsg.innerHTML = "Welcome Admin";
+      popupDisplay.classList.add('admin');
+      popupDisplay.classList.remove('teac');
+      popupDisplay.classList.remove('stu');
       break;
     case 'teacher':
       popupDisplay.style.display = "block";
       welcomeMsg.innerHTML = "Welcome Teacher";
+      popupDisplay.classList.add('teac');
+      popupDisplay.classList.remove('admin');
+      popupDisplay.classList.remove('stu');
       break;
     case 'student':
       popupDisplay.style.display = "block";
       welcomeMsg.innerHTML = "Welcome Student";
+      popupDisplay.classList.add('stu');
+      popupDisplay.classList.remove('teac');
+      popupDisplay.classList.remove('admin');
       break;
     default:
       console.log("not Found");

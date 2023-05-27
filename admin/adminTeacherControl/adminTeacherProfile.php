@@ -11,10 +11,25 @@
                     <img src="../../assest/images/img.jpeg" alt="">
                 </div>
                 <div class="profile-content">
-                    <p>Name: <span id="profileTeacerName">Ahmad Ali</span></p>
-                    <p>Email: <span id="profileTeacerEmail">ahmed@gmail.com</span></p>
-                    <p>Phone: <span id="profileTeacerPhone">059123456</span></p>
-                    <p>Password: <span id="profileTeacerPassword">assd15226</span></p>               
+                <?php
+            $tid = explode("=", $_SERVER["QUERY_STRING"]);
+            $teacher_query = "SELECT * FROM `tbl_teacher` WHERE _id=$tid[1]";
+            $teacher_result = mysqli_query($connection, $teacher_query);
+
+            if (mysqli_num_rows($teacher_result) > 0) {
+
+                while ($teacher = mysqli_fetch_array($teacher_result)) {
+            ?>
+                    <p>Name: <span id="profileTeacherName"><?php echo $teacher['name'] ?></span></p>
+                    <p>Email: <span id="profileTeacherEmail"><?php echo $teacher['email'] ?></span></p>
+                    <p>Phone: <span id="profileTeacherPhone"><?php echo $teacher['phone'] ?></span></p>
+                    <p>Password: <span id="profileTeacherPassword"><?php echo $teacher['password'] ?></span></p>
+                    </tr>
+            <?php
+                }
+            }
+
+            ?>
                 </div>
             </div>
            

@@ -19,30 +19,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
+                    <?php
+                $course_query = "SELECT * FROM `tbl_course`";
+                $course_result = mysqli_query($connection, $course_query);
+
+                if (mysqli_num_rows($course_result) > 0) {
+                    while ($course = mysqli_fetch_array($course_result)) {
+                ?>
                         <tr id="teacherRow">
-                            <td>SDEV 2016</td>
-                            <td>web programming</td>
-                            <td><a href="./adminCoursesEdite.html" class="add">edit</a></td>
-                            
+                            <td><?php echo $course['coursenr']; ?></td>
+                            <td><?php echo $course['name']; ?></td>
+                            <td><a href='./adminCoursesEdite.php?_id=<?php echo $course['_id']; ?>' class="add">edit</a></td>
                         </tr>
-                        <tr id="teacherRow">
-                            <td>SDEV 2016</td>
-                            <td>web programming</td>
-                            <td><a href="./adminCoursesEdite.html" class="add">edit</a></td>
-                            
-                        </tr>
-                        <tr id="teacherRow">
-                            <td>SDEV 2016</td>
-                            <td>web programming</td>
-                            <td><a href="./adminCoursesEdite.html" class="add">edit</a></td>
-                            
-                        </tr>
-                        <tr id="teacherRow">
-                            <td>SDEV 2016</td>
-                            <td>web programming</td>
-                            <td><a href="./adminCoursesEdite.html" class="add">edit</a></td>
-                            
-                        </tr>
+                <?php
+                    }
+                }
+                ?>
                     </tbody>
                 </table>
             </div>

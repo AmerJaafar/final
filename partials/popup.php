@@ -1,25 +1,72 @@
 <?php
 include_once "config/db.php";
 session_start();
-if (isset($_POST['submit'])) {
-        $email = $_POST['email'];
-        $password = $_POST['pass'];
-    
-        if (!$email && !$password) {
-            header('Location:index.php?empty');
+
+$admin = parse_url('/final/index.php#admin', PHP_URL_FRAGMENT);
+$teacher = parse_url('/final/index.php#teacher', PHP_URL_FRAGMENT);
+$student = parse_url('/final/index.php#student', PHP_URL_FRAGMENT);
+
+if (isset($_POST['submit']) && $admin) {
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+
+    if (!$email && !$password) {
+        header('Location:index.php?empty');
+    } else {
+        $query = "SELECT * FROM tbl_admin WHERE tbl_admin.email='$email' AND tbl_admin.password='$password'";
+        $result = mysqli_query($connection, $query);
+        if (mysqli_num_rows($result) == 1) {
+            $user = mysqli_fetch_assoc($result);
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['user_id'] = $user['id'];
+            header('Location:./admin/');
         } else {
-            $query = "SELECT `_id`, `email` FROM tbl_admin WHERE email='$email' AND password='$password'";
-            $result = mysqli_query($connection, $query);
-            if (mysqli_num_rows($result) == 1) {
-                $user = mysqli_fetch_assoc($result);
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['user_id'] = $user['id'];
-                header('Location:./admin/');
-            } else {
-                header('Location:index.php');
-            }
+            header('Location:index.php');
         }
     }
+}
+
+
+if (isset($_POST['submit']) && $teacher) {
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+
+    if (!$email && !$password) {
+        header('Location:index.php?empty');
+    } else {
+        $query = "SELECT * FROM tbl_teacher WHERE tbl_teacher.email='$email' AND tbl_teacher.password='$password'";
+        $result = mysqli_query($connection, $query);
+        if (mysqli_num_rows($result) == 1) {
+            $user = mysqli_fetch_assoc($result);
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['user_id'] = $user['id'];
+            header('Location:./teacher');
+        } else {
+            header('Location:index.php');
+        }
+    }
+}
+
+
+if (isset($_POST['submit']) && $student) {
+    $email = $_POST['email'];
+    $password = $_POST['pass'];
+
+    if (!$email && !$password) {
+        header('Location:index.php?empty');
+    } else {
+        $query = "SELECT * FROM tbl_student WHERE tbl_student.email='$email' AND tbl_student.password='$password'";
+        $result = mysqli_query($connection, $query);
+        if (mysqli_num_rows($result) == 1) {
+            $user = mysqli_fetch_assoc($result);
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['user_id'] = $user['id'];
+            header('Location:./student');
+        } else {
+            header('Location:index.php');
+        }
+    }
+}
 ?>
 <div class="popup-container">
     <div class="popup-header">
