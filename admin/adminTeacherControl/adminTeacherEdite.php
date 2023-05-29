@@ -33,24 +33,24 @@ if (isset($_POST['edit'])) {
             ?>
                     <div class="input-container">
                         <label for="name">Name:</label>
-                        <input type="text" name="name" id="studentName" placeholder="Enter Student Name.." value="<?php echo $student['name'] ?>" required>
+                        <input type="text" name="name" id="teacherName" placeholder="Enter Teacher Name.." value="<?php echo $teacher['name'] ?>" required>
                     </div>
                     <div class="input-container">
                         <label for="Email">Email:</label>
-                        <input type="Email" name="email" id="studentEmail" placeholder="Enter Student Email.." value="<?php echo $student['email'] ?>" required>
+                        <input type="Email" name="email" id="teacherEmail" placeholder="Enter Teacher Email.." value="<?php echo $teacher['email'] ?>" required>
                     </div>
                     <div class="input-container">
                         <label for="Phone">Phone:</label>
-                        <input type="tel" name="phone" id="studentPhone" placeholder="Enter Student Phone.." value="<?php echo $student['phone'] ?>" required>
+                        <input type="tel" name="phone" id="teacherPhone" placeholder="Enter Teacher Phone.." value="<?php echo $teacher['phone'] ?>" required>
                     </div>
                     <div class="input-container">
                         <label for="Password">Password:</label>
-                        <input type="text" name="password" id="studentPassword" placeholder="Enter Student Password.." value="<?php echo $student['password'] ?>" required>
+                        <input type="text" name="password" id="teacherPassword" placeholder="Enter Teacher Password.." value="<?php echo $teacher['password'] ?>" required>
                     </div>
-                    <!-- <div class="input-container">
+                    <div class="input-container">
                         <label for="image">image:</label>
-                        <input type="file" name="image" id="studentImage">
-                    </div> -->
+                        <input type="file" name="image" id="teacherImage">
+                    </div>
 
             <?php
                 }
