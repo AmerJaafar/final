@@ -1,6 +1,10 @@
 <?php 
-$connection = mysqli_connect("localhost","root","","db.courses");
-session_start();
+include_once '../config/db.php';
+
+if ($_SESSION['aloggedin'] != true) {
+    header('Location: ../partials/alogin.php');
+}    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +19,12 @@ session_start();
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
     <!-- font awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>admin home</title>
 </head>
 
@@ -55,7 +62,7 @@ session_start();
                     </thead>
                     <tbody>
 
-                    <?php
+                        <?php
                         $student_query = "SELECT `_id`, `name`, `degree` FROM `tbl_student`";
                         $student_result = mysqli_query($connection, $student_query);
 
@@ -64,14 +71,14 @@ session_start();
                             while ($student = mysqli_fetch_array($student_result)) { 
                                 if ($student['degree'] <= 3) {
                                 ?>
-                                        <tr>
-                                            <td><?php echo $student['name']; ?></td>
-                                        </tr>
-                                        <?php
+                        <tr>
+                            <td><?php echo $student['name']; ?></td>
+                        </tr>
+                        <?php
                                     }
                                     else { ?>
-                                        <div>No Data</div>
-                                    <?php }
+                        <div>No Data</div>
+                        <?php }
                                 }
 
                         }

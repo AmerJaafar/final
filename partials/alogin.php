@@ -1,10 +1,8 @@
-<?php include_once"./header.php"?>
+<?php 
+    include_once "./header.php";
+    include_once "../config/db.php";
 
-<?php include_once"../config/db.php";
-session_start(); ?>
-
-
-<?php if (isset($_POST['submit']) ) {
+ if (isset($_POST['submit']) ) {
     $email = $_POST['email'];
     $password = $_POST['pass'];
 
@@ -16,23 +14,18 @@ session_start(); ?>
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
             $_SESSION['email'] = $user['email'];
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['_id'] = $user['id'];
+            $_SESSION['aloggedin'] = true;
             header('Location:../admin/');
         } else {
-            header('Location:../index.php');
+            header('Location:alogin.php');
         }
     }
-} ?>
+} 
+
+?>
 
 <div class="popup-container">
-    <!-- <div class="popup-header">
-        <div class="btn btn-menu hover rotate-90 radius-25">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="btn btn-close hover rotate-45 radius-25" type="close" onclick="popupClose()">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
-    </div> -->
     <div class="text">
         <span id="welcome-msg">welcome admin</span>
         <img src="../assest/images/img.jpeg" alt="" class="img">
@@ -65,4 +58,4 @@ session_start(); ?>
     </div>
 </div>
 
-<?php include_once"./footer.php"?>
+<?php include_once "./footer.php"?>

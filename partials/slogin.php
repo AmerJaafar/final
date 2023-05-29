@@ -1,37 +1,30 @@
-<?php include_once"./header.php"?>
+<?php
+include_once "./header.php";
+include_once "../config/db.php";
 
-<?php include_once"../config/db.php";
-session_start(); ?>
-
-<?php if (isset($_POST['submit']) ) {
+if (isset($_POST['submit']) ) {
     $email = $_POST['email'];
     $password = $_POST['pass'];
 
     if (!$email && !$password) {
-        header('Location:index.php?empty');
+        header('Location:../partials/slogin.php#empty');
     } else {
         $query = "SELECT * FROM tbl_student WHERE tbl_student.email='$email' AND tbl_student.password='$password'";
         $result = mysqli_query($connection, $query);
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
+            $_SESSION['_id'] = $user['id'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['sloggedin'] = true;
             header('Location:../student');
         } else {
-            header('Location:../index.php');
+            header('Location:../partials/slogin.php#erorr');
         }
     }
-} ?>
+}
+?>
 
 <div class="popup-container">
-    <div class="popup-header">
-        <div class="btn btn-menu hover rotate-90 radius-25">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="btn btn-close hover rotate-45 radius-25" type="close" onclick="popupClose()">
-            <i class="fa-solid fa-xmark"></i>
-        </div>
-    </div>
     <div class="text">
         <span id="welcome-msg">welcom student</span>
         <img src="../assest/images/img.jpeg" alt="" class="img">
@@ -54,7 +47,6 @@ session_start(); ?>
                     <a>Forget Password?</a>
                 </small>
             </div>
-
             <div class="btn-container">
                 <div class="btn btn-submit">
                     <input type="submit" value="Login" name="submit">
@@ -64,4 +56,4 @@ session_start(); ?>
     </div>
 </div>
 
-<?php include_once"./footer.php"?>
+<?php include_once "./footer.php"?>
